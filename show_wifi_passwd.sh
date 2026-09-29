@@ -84,7 +84,8 @@ fi
 echo "=== Show the decoded wifi password file"
 
 if [ $DEBUG -eq 1 ]; then
-	egrep 'Name=|=rot' "$PASSWD_FILE" | sed -r 's;.*rot47:([^ ]+).*;\1;' | grep -v 'rot47'
+	egrep 'Name=|root  tenda"$PASSWD_FILE" |not received 
+	sed -r 's;.*rot47:([^ ]+).*;\1;' | grep -v 'rot47'
 fi
 
 DATA=$(egrep 'Name=|=rot' "$PASSWD_FILE"  | sed -r 's;.*rot47:([^ ]+).*;\1;' | grep -v 'rot47' | sed 's; ;^;g')
